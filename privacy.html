@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プライバシーポリシー | 5人のなんでも会議</title>
+<style>
+  :root {
+    --bg: #faf9f7;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --accent: #4A90D9;
+    --border: #e6e3dd;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+  }
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+  }
+  .lang-switch {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .lang-switch button {
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .lang-switch button.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #ffffff;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  header h1 {
+    font-size: 1.5rem;
+    margin: 0 0 4px;
+  }
+  header p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 24px;
+    margin-bottom: 20px;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p {
+    color: var(--text);
+    font-size: 0.95rem;
+    margin: 0 0 12px;
+  }
+  .card p:last-child { margin-bottom: 0; }
+  .contact-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: #f2f6fb;
+    border-radius: 10px;
+    padding: 14px 16px;
+    flex-wrap: wrap;
+  }
+  .contact-box a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .contact-box a:hover { text-decoration: underline; }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-top: 32px;
+  }
+  .updated {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: -6px;
+    margin-bottom: 32px;
+  }
+  [data-lang="en"] { display: none; }
+  html.lang-en [data-lang="ja"] { display: none; }
+  html.lang-en [data-lang="en"] { display: block; }
+  html.lang-en [data-lang="en"].contact-box { display: flex; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="lang-switch">
+      <button id="btn-ja" class="active" onclick="setLang('ja')">日本語</button>
+      <button id="btn-en" onclick="setLang('en')">English</button>
+    </div>
+
+    <header>
+      <h1 data-lang="ja">5人のなんでも会議</h1>
+      <h1 data-lang="en">The 5-Person Roundtable</h1>
+      <p data-lang="ja">プライバシーポリシー</p>
+      <p data-lang="en">Privacy Policy</p>
+    </header>
+
+    <p class="updated" data-lang="ja">最終更新日：2026年7月14日</p>
+    <p class="updated" data-lang="en">Last updated: July 14, 2026</p>
+
+    <div class="card">
+      <p data-lang="ja">「5人のなんでも会議」（以下「本アプリ」）は、ユーザーのプライバシーを尊重します。本ポリシーは、本アプリが取得・利用する情報について説明するものです。</p>
+      <p data-lang="en">"The 5-Person Roundtable" (the "App") respects your privacy. This policy explains what information the App collects and how it is used.</p>
+    </div>
+
+    <div class="card">
+      <h2 data-lang="ja">取得する情報</h2>
+      <h2 data-lang="en">Information we collect</h2>
+
+      <p data-lang="ja"><strong>1. ユーザーが入力したテーマ文</strong><br>
+      会議を生成するため、入力されたテーマ文をAIモデル（Anthropic社のClaude API）へ送信します。このテキストは、生成処理のためにAnthropic社のサーバーで一時的に処理されます。詳細は<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic社のプライバシーポリシー</a>をご確認ください。</p>
+      <p data-lang="en"><strong>1. Topic text you enter</strong><br>
+      To generate a meeting, the topic text you enter is sent to an AI model (Anthropic's Claude API) for processing. This text is processed temporarily on Anthropic's servers. See <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy Policy</a> for details.</p>
+
+      <p data-lang="ja"><strong>2. アプリの利用状況（端末内保存）</strong><br>
+      会議の開催回数、達成した称号、選択した言語・設定などは、ユーザーの端末内（UserDefaults）にのみ保存されます。これらの情報が外部のサーバーに送信されることはありません。</p>
+      <p data-lang="en"><strong>2. In-app usage data (stored locally only)</strong><br>
+      The number of meetings you've started, achievements unlocked, and your language/settings preferences are stored only on your device (via UserDefaults) and are never sent to any external server.</p>
+    </div>
+
+    <div class="card">
+      <h2 data-lang="ja">取得しない情報</h2>
+      <h2 data-lang="en">Information we do NOT collect</h2>
+      <p data-lang="ja">本アプリは、氏名・メールアドレス・位置情報・連絡先などの個人を特定できる情報を、ユーザーが自発的にお問い合わせ等で提供する場合を除き、取得しません。</p>
+      <p data-lang="en">We do not collect personally identifiable information such as your name, email address, location, or contacts, except when you voluntarily provide it (e.g., contacting support).</p>
+    </div>
+
+    <div class="card">
+      <h2 data-lang="ja">第三者への提供</h2>
+      <h2 data-lang="en">Third-party sharing</h2>
+      <p data-lang="ja">入力されたテーマ文は、会議生成の目的でのみAnthropic社のAPIに送信されます。それ以外の目的で第三者に提供することはありません。</p>
+      <p data-lang="en">Topic text is sent only to Anthropic's API for the purpose of generating meeting content. We do not share it with any other third party for any other purpose.</p>
+    </div>
+
+    <div class="card">
+      <h2 data-lang="ja">広告</h2>
+      <h2 data-lang="en">Advertising</h2>
+      <p data-lang="ja">本アプリは、広告表示のために将来的に第三者広告配信サービスを利用する場合があります。広告配信事業者は、広告の効果測定等のために、端末識別子等の情報を取得することがあります。</p>
+      <p data-lang="en">The App may use a third-party ad network to display ads in the future. Ad providers may collect device identifiers for ad measurement purposes.</p>
+    </div>
+
+    <div class="card">
+      <h2 data-lang="ja">お問い合わせ</h2>
+      <h2 data-lang="en">Contact</h2>
+      <p data-lang="ja">本ポリシーに関するご質問は、以下のメールアドレスまでご連絡ください。</p>
+      <p data-lang="en">For questions about this policy, please contact:</p>
+      <div class="contact-box" data-lang="ja">
+        <span>メール</span>
+        <a href="mailto:feathecrea@outlook.com">feathecrea@outlook.com</a>
+      </div>
+      <div class="contact-box" data-lang="en">
+        <span>Email</span>
+        <a href="mailto:feathecrea@outlook.com">feathecrea@outlook.com</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 data-lang="ja">改定</h2>
+      <h2 data-lang="en">Changes</h2>
+      <p data-lang="ja">本ポリシーは、必要に応じて予告なく改定される場合があります。</p>
+      <p data-lang="en">This policy may be updated from time to time without prior notice.</p>
+    </div>
+
+    <footer data-lang="ja">
+      © 5人のなんでも会議
+    </footer>
+    <footer data-lang="en">
+      © The 5-Person Roundtable
+    </footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.documentElement.classList.toggle('lang-en', lang === 'en');
+      document.documentElement.lang = lang;
+      document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    }
+  </script>
+</body>
+</html>
