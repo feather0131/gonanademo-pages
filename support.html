@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="lang-ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,7 @@
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.8;
@@ -31,6 +31,7 @@
     justify-content: center;
     gap: 8px;
     margin-bottom: 24px;
+    flex-wrap: wrap;
   }
   .lang-switch button {
     font-family: inherit;
@@ -127,10 +128,13 @@
     margin-top: -6px;
     margin-bottom: 32px;
   }
-  [data-lang="en"] { display: none; }
-  html.lang-en [data-lang="ja"] { display: none; }
+  [data-lang] { display: none; }
+  html.lang-ja [data-lang="ja"] { display: block; }
   html.lang-en [data-lang="en"] { display: block; }
+  html.lang-ko [data-lang="ko"] { display: block; }
+  html.lang-ja [data-lang="ja"].contact-box { display: flex; }
   html.lang-en [data-lang="en"].contact-box { display: flex; }
+  html.lang-ko [data-lang="ko"].contact-box { display: flex; }
 </style>
 </head>
 <body>
@@ -138,26 +142,34 @@
     <div class="lang-switch">
       <button id="btn-ja" class="active" onclick="setLang('ja')">日本語</button>
       <button id="btn-en" onclick="setLang('en')">English</button>
+      <button id="btn-ko" onclick="setLang('ko')">한국어</button>
     </div>
 
     <header>
       <h1 data-lang="ja">5人のなんでも会議</h1>
       <h1 data-lang="en">The 5-Person Roundtable</h1>
+      <h1 data-lang="ko">5인의 무엇이든 회의</h1>
       <p data-lang="ja">サポートページ</p>
       <p data-lang="en">Support Page</p>
+      <p data-lang="ko">지원 페이지</p>
     </header>
 
     <p class="disclaimer" data-lang="ja">※本アプリはフィクションです。会議内で語られる情報は最新でない場合があります。エンターテインメントとしてお楽しみください。<br>不適切なテーマの入力や、本アプリの不正利用が確認された場合、利用をお断りする場合があります。</p>
     <p class="disclaimer" data-lang="en">This app is a work of fiction. Information discussed in the meetings may not be up to date — please enjoy it purely as entertainment.<br>We may restrict access if we detect inappropriate topic submissions or misuse of the app.</p>
+    <p class="disclaimer" data-lang="ko">※본 앱은 픽션입니다. 회의 중 언급되는 정보는 최신이 아닐 수 있습니다. 엔터테인먼트로 즐겨주세요.<br>부적절한 주제 입력이나 본 앱의 부정 이용이 확인될 경우 이용을 제한할 수 있습니다.</p>
 
     <div class="card">
       <h2 data-lang="ja">お問い合わせ</h2>
       <h2 data-lang="en">Contact</h2>
+      <h2 data-lang="ko">문의</h2>
       <p style="color:var(--muted); font-size:0.9rem; margin-top:0;" data-lang="ja">
         不具合報告・ご意見・ご要望など、お気軽にご連絡ください。
       </p>
       <p style="color:var(--muted); font-size:0.9rem; margin-top:0;" data-lang="en">
         Feel free to reach out with bug reports, feedback, or requests.
+      </p>
+      <p style="color:var(--muted); font-size:0.9rem; margin-top:0;" data-lang="ko">
+        오류 신고, 의견, 요청 등 편하게 연락해 주세요.
       </p>
       <div class="contact-box" data-lang="ja">
         <span>メール</span>
@@ -167,11 +179,16 @@
         <span>Email</span>
         <a href="mailto:feathecrea@outlook.com">feathecrea@outlook.com</a>
       </div>
+      <div class="contact-box" data-lang="ko">
+        <span>이메일</span>
+        <a href="mailto:feathecrea@outlook.com">feathecrea@outlook.com</a>
+      </div>
     </div>
 
     <div class="card">
       <h2 data-lang="ja">よくある質問</h2>
       <h2 data-lang="en">FAQ</h2>
+      <h2 data-lang="ko">자주 묻는 질문</h2>
 
       <div class="faq-item" data-lang="ja">
         <p class="faq-q">このアプリは何ができるの？</p>
@@ -180,6 +197,10 @@
       <div class="faq-item" data-lang="en">
         <p class="faq-q">What does this app do?</p>
         <p class="faq-a">You enter a topic, and five fictional characters (a Facilitator, a Blunt Critic, an Experienced Voice, an Expert, and an Everyday Rep) debate it in the format of a meeting.</p>
+      </div>
+      <div class="faq-item" data-lang="ko">
+        <p class="faq-q">이 앱은 무엇을 할 수 있나요?</p>
+        <p class="faq-a">입력한 주제에 대해 5명의 등장인물(진행자·독설 평론가·경험자 A·전문가 B·일반인 대표 C)이 가상의 회의 형식으로 토론하는 모습을 읽을 수 있는 앱입니다.</p>
       </div>
 
       <div class="faq-item" data-lang="ja">
@@ -190,29 +211,35 @@
         <p class="faq-q">Is the content of the meetings real?</p>
         <p class="faq-a">No, it's entirely fictional. Every line is AI-generated and unrelated to real events, statistics, or people. Information discussed may not be current, so please treat it as entertainment.</p>
       </div>
+      <div class="faq-item" data-lang="ko">
+        <p class="faq-q">회의 내용은 실제인가요?</p>
+        <p class="faq-a">아니요, 픽션입니다. 등장인물의 발언은 모두 AI가 생성한 가상의 내용이며, 실제 사건·통계·인물과는 관련이 없습니다. 회의 중 언급되는 정보가 최신이 아닐 수도 있으니 엔터테인먼트로 즐겨주세요.</p>
+      </div>
 
       <div class="faq-item" data-lang="ja">
         <p class="faq-q">広告が表示されるのはなぜですか？</p>
         <p class="faq-a">会議の生成にはAIモデルの呼び出しが必要で、その都度サーバー側でコストが発生しています。広告を視聴いただくことで、このコストの一部をまかなわせていただいています。</p>
-        <!-- 審査通過後、以下の一文を追加する（コメントアウトを外すだけでOK）
-        <p class="faq-a" style="margin-top:6px;">正直なところ、AIを使った生成コストがそれなりにかかっており、広告表示の頻度は他の読み物アプリと比べて少し多めです。ご不便をおかけしますが、ご理解いただけると嬉しいです🙏</p>
-        -->
       </div>
       <div class="faq-item" data-lang="en">
         <p class="faq-q">Why do ads appear?</p>
         <p class="faq-a">Generating each meeting requires an AI model call, which incurs server-side costs. Watching an ad helps us cover part of that cost.</p>
-        <!-- Add the following line after review approval (just remove the comment)
-        <p class="faq-a" style="margin-top:6px;">Honestly, the AI generation cost is fairly high, so ads may appear a bit more often than in other reading apps. We appreciate your understanding 🙏</p>
-        -->
+      </div>
+      <div class="faq-item" data-lang="ko">
+        <p class="faq-q">광고는 왜 표시되나요?</p>
+        <p class="faq-a">회의를 생성할 때마다 AI 모델을 호출해야 하며, 그때마다 서버 측에서 비용이 발생합니다. 광고를 시청해 주시면 이 비용의 일부를 충당하는 데 도움이 됩니다.</p>
       </div>
 
       <div class="faq-item" data-lang="ja">
-        <p class="faq-q">広告を消す方法はありますか？</p>
-        <p class="faq-a">月額プランにご加入いただくと、広告視聴なしですぐに次回・結論へ進めるようになります。アプリ内の「広告なしプラン」からご確認いただけます。</p>
+        <p class="faq-q">「広告なしプラン」に入るとどうなりますか？</p>
+        <p class="faq-a">①広告視聴なしですぐに次回・結論へ進めるようになるほか、②会議履歴の保存・後からの閲覧、③結論をさらに掘り下げられる「深掘り会議」機能もあわせて利用できるようになります。アプリ内の「広告なしプラン」からご確認いただけます。</p>
       </div>
       <div class="faq-item" data-lang="en">
-        <p class="faq-q">Can I remove the ads?</p>
-        <p class="faq-a">Subscribing to the monthly plan lets you move to the next round or reveal the conclusion instantly, with no ads. You can check this from "Ad-Free Plan" in the app.</p>
+        <p class="faq-q">What do I get with the "Ad-Free Plan"?</p>
+        <p class="faq-a">You get (1) instant access to the next round or conclusion with no ads, (2) the ability to save and revisit your meeting history, and (3) the "deep-dive meeting" feature to dig further into a conclusion. You can check this from "Ad-Free Plan" in the app.</p>
+      </div>
+      <div class="faq-item" data-lang="ko">
+        <p class="faq-q">'광고 없는 플랜'에 가입하면 무엇이 좋아지나요?</p>
+        <p class="faq-a">①광고 시청 없이 바로 다음 회차·결론으로 진행할 수 있고, ②회의 기록을 저장해 나중에 다시 볼 수 있으며, ③결론을 더 깊이 파고드는 '심층 회의' 기능도 함께 이용하실 수 있습니다. 앱 내 '광고 없는 플랜'에서 확인하실 수 있습니다.</p>
       </div>
 
       <div class="faq-item" data-lang="ja">
@@ -223,6 +250,10 @@
         <p class="faq-q">Can I switch the language?</p>
         <p class="faq-a">Yes. You can switch between Japanese, English, and Korean at the top of the theme input screen.</p>
       </div>
+      <div class="faq-item" data-lang="ko">
+        <p class="faq-q">언어를 변경할 수 있나요?</p>
+        <p class="faq-a">네. 주제 입력 화면 상단에서 日本語／English／한국어를 전환할 수 있습니다.</p>
+      </div>
 
       <div class="faq-item" data-lang="ja">
         <p class="faq-q">入力したテーマや個人情報はどう扱われますか？</p>
@@ -231,6 +262,10 @@
       <div class="faq-item" data-lang="en">
         <p class="faq-q">How is my submitted topic or personal information handled?</p>
         <p class="faq-a">The topic text you submit is sent to an AI model (Anthropic's Claude API) to generate the meeting. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
+      </div>
+      <div class="faq-item" data-lang="ko">
+        <p class="faq-q">입력한 주제나 개인정보는 어떻게 처리되나요?</p>
+        <p class="faq-a">입력하신 주제 텍스트는 회의를 생성하기 위해 AI(Anthropic사의 Claude API)로 전송됩니다. 자세한 내용은 <a href="privacy.html">개인정보처리방침</a>을 확인해 주세요.</p>
       </div>
 
       <div class="faq-item" data-lang="ja">
@@ -241,6 +276,10 @@
         <p class="faq-q">I found a bug. Where should I report it?</p>
         <p class="faq-a">Please contact us at the email address above. Including details of what happened (the topic used, the steps you took, etc.) helps us investigate faster.</p>
       </div>
+      <div class="faq-item" data-lang="ko">
+        <p class="faq-q">오류를 발견했습니다. 어디에 신고하면 되나요?</p>
+        <p class="faq-a">위의 이메일 주소로 연락해 주세요. 발생한 상황(사용한 주제, 조작 내용 등)을 함께 알려주시면 원활하게 조사할 수 있습니다.</p>
+      </div>
 
       <div class="faq-item" data-lang="ja">
         <p class="faq-q">AIが不適切な発言・内容を生成した場合はどうすればいいですか？</p>
@@ -250,6 +289,10 @@
         <p class="faq-q">What should I do if the AI generates inappropriate content?</p>
         <p class="faq-a">We apologize for the inconvenience. Please contact us at the email address above with the topic and the specific content in question. We will review it and take appropriate action, such as improving our generation rules or filtering.</p>
       </div>
+      <div class="faq-item" data-lang="ko">
+        <p class="faq-q">AI가 부적절한 발언·내용을 생성한 경우 어떻게 해야 하나요?</p>
+        <p class="faq-a">불편을 드려 죄송합니다. 위의 이메일 주소로 해당 주제와 발언 내용을 함께 보내주세요. 내용을 확인한 후 생성 규칙 개선, 필터링 강화 등 필요한 조치를 취하겠습니다.</p>
+      </div>
     </div>
 
     <footer data-lang="ja">
@@ -258,14 +301,19 @@
     <footer data-lang="en">
       © The 5-Person Roundtable
     </footer>
+    <footer data-lang="ko">
+      © 5인의 무엇이든 회의
+    </footer>
   </div>
 
   <script>
     function setLang(lang) {
-      document.documentElement.classList.toggle('lang-en', lang === 'en');
+      document.documentElement.classList.remove('lang-ja', 'lang-en', 'lang-ko');
+      document.documentElement.classList.add('lang-' + lang);
       document.documentElement.lang = lang;
       document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
     }
   </script>
 </body>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja" class="lang-ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>特定商取引法に基づく表記 | 5人のなんでも会議</title>
+<style>
+  :root {
+    --bg: #faf9f7;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --accent: #4A90D9;
+    --border: #e6e3dd;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+  }
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+  }
+  .lang-switch {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .lang-switch button {
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .lang-switch button.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #ffffff;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  header h1 {
+    font-size: 1.5rem;
+    margin: 0 0 4px;
+  }
+  header p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 24px;
+    margin-bottom: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table td, table th {
+    text-align: left;
+    vertical-align: top;
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.92rem;
+  }
+  table tr:last-child td, table tr:last-child th { border-bottom: none; }
+  table th {
+    width: 34%;
+    color: var(--muted);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  table td {
+    color: var(--text);
+  }
+  table td a { color: var(--accent); text-decoration: none; word-break: break-all; }
+  table td a:hover { text-decoration: underline; }
+  .note {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: -8px;
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-top: 32px;
+  }
+  .updated {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: -6px;
+    margin-bottom: 32px;
+  }
+  [data-lang] { display: none; }
+  html.lang-ja [data-lang="ja"] { display: block; }
+  html.lang-en [data-lang="en"] { display: block; }
+  html.lang-ko [data-lang="ko"] { display: block; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="lang-switch">
+      <button id="btn-ja" class="active" onclick="setLang('ja')">日本語</button>
+      <button id="btn-en" onclick="setLang('en')">English</button>
+      <button id="btn-ko" onclick="setLang('ko')">한국어</button>
+    </div>
+
+    <header>
+      <h1 data-lang="ja">5人のなんでも会議</h1>
+      <h1 data-lang="en">The 5-Person Roundtable</h1>
+      <h1 data-lang="ko">5인의 무엇이든 회의</h1>
+      <p data-lang="ja">特定商取引法に基づく表記</p>
+      <p data-lang="en">Notice Based on the Act on Specified Commercial Transactions</p>
+      <p data-lang="ko">특정상거래법에 따른 표기</p>
+    </header>
+
+    <p class="updated" data-lang="ja">最終更新日：2026年8月1日</p>
+    <p class="updated" data-lang="en">Last updated: August 1, 2026</p>
+    <p class="updated" data-lang="ko">최종 업데이트: 2026년 8월 1일</p>
+
+    <div class="card" data-lang="ja">
+      <p style="color:var(--muted); font-size:0.9rem; margin-top:0;">
+        本アプリでは月額サブスクリプション（広告なしプラン）を提供しており、特定商取引法第11条に基づき、以下のとおり表記します。
+      </p>
+    </div>
+    <div class="card" data-lang="en">
+      <p style="color:var(--muted); font-size:0.9rem; margin-top:0;">
+        This App offers a monthly subscription (the Ad-Free Plan). In accordance with Japan's Act on Specified Commercial Transactions, the following information is disclosed.
+      </p>
+    </div>
+    <div class="card" data-lang="ko">
+      <p style="color:var(--muted); font-size:0.9rem; margin-top:0;">
+        본 앱은 월정액 구독(광고 없는 플랜)을 제공하고 있으며, 일본 특정상거래법 제11조에 따라 다음과 같이 표기합니다.
+      </p>
+    </div>
+
+    <div class="card" data-lang="ja">
+      <table>
+        <tr><th>販売事業者</th><td>feathecrea</td></tr>
+        <tr>
+          <th>所在地</th>
+          <td>〒105-0013<br>東京都港区浜松町2丁目2番15号　浜松町ダイヤビル2F</td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td>請求があった場合には、遅滞なく開示いたします。開示をご希望の方は下記メールアドレスまでご連絡ください。</td>
+        </tr>
+        <tr><th>メールアドレス</th><td><a href="mailto:feathecrea@outlook.com">feathecrea@outlook.com</a></td></tr>
+        <tr><th>運営統括責任者</th><td>請求があった場合には、遅滞なく開示いたします。開示をご希望の方は下記メールアドレスまでご連絡ください。</td></tr>
+        <tr><th>追加手数料等の追加料金</th><td>なし（アプリのダウンロードおよびご利用にかかる通信料はお客様のご負担となります）</td></tr>
+        <tr><th>販売価格</th><td>広告なしプラン：月額600円（税込）。広告非表示に加え、会議履歴の保存・閲覧、深掘り会議機能が含まれます。価格は予告なく変更される場合があります。最新の価格はアプリ内の購入画面に表示される金額をご確認ください。</td></tr>
+        <tr><th>お支払い方法</th><td>Google Play Billing（Google Playでのお支払い方法に準じます）</td></tr>
+        <tr><th>お支払い時期</th><td>初回登録時に即時課金。以降は各更新日に自動課金されます。</td></tr>
+        <tr><th>サービスの提供時期</th><td>決済完了後、直ちにご利用いただけます。</td></tr>
+        <tr>
+          <th>返品・キャンセルについて</th>
+          <td>
+            本サービスはデジタルコンテンツのため、購入後の返品はお受けできません。サブスクリプションの解約は、Google Playの購読設定からいつでも行えます。解約後も、既にお支払い済みの期間の終了まではサービスをご利用いただけます。日割りでの返金は行っておりません。
+          </td>
+        </tr>
+        <tr><th>動作環境</th><td>Android（Google Play経由でのご利用）</td></tr>
+      </table>
+    </div>
+
+    <div class="card" data-lang="en">
+      <table>
+        <tr><th>Seller</th><td>feathecrea</td></tr>
+        <tr>
+          <th>Address</th>
+          <td>2F Hamamatsucho Diamond Building, 2-2-15 Hamamatsucho, Minato-ku, Tokyo 105-0013, Japan</td>
+        </tr>
+        <tr>
+          <th>Phone number</th>
+          <td>Disclosed without delay upon request. Please contact us at the email address below to request this information.</td>
+        </tr>
+        <tr><th>Email</th><td><a href="mailto:feathecrea@outlook.com">feathecrea@outlook.com</a></td></tr>
+        <tr><th>Person in charge</th><td>Disclosed without delay upon request. Please contact us at the email address below to request this information.</td></tr>
+        <tr><th>Additional fees</th><td>None (data charges for downloading/using the App are borne by the user)</td></tr>
+        <tr><th>Price</th><td>Ad-Free Plan: ¥600/month (tax included). Includes ad removal as well as meeting history (save/view) and the deep-dive meeting feature. Prices may change without notice; please check the amount shown on the in-app purchase screen for the current price.</td></tr>
+        <tr><th>Payment method</th><td>Google Play Billing</td></tr>
+        <tr><th>Payment timing</th><td>Charged immediately upon initial subscription, then automatically at each renewal.</td></tr>
+        <tr><th>Timing of service delivery</th><td>Available immediately after payment is completed.</td></tr>
+        <tr>
+          <th>Returns / Cancellation</th>
+          <td>As this is digital content, returns are not accepted after purchase. You may cancel your subscription at any time from Google Play's subscription settings. The service remains available until the end of the period you've already paid for. No prorated refunds are issued.</td>
+        </tr>
+        <tr><th>Operating environment</th><td>Android (via Google Play)</td></tr>
+      </table>
+    </div>
+
+    <div class="card" data-lang="ko">
+      <table>
+        <tr><th>판매사업자</th><td>feathecrea</td></tr>
+        <tr>
+          <th>소재지</th>
+          <td>〒105-0013<br>도쿄도 미나토구 하마마츠초 2초메 2-15 하마마츠초 다이아몬드 빌딩 2F</td>
+        </tr>
+        <tr>
+          <th>전화번호</th>
+          <td>청구가 있을 경우 지체 없이 공개합니다. 공개를 원하시는 분은 아래 이메일 주소로 연락해 주세요.</td>
+        </tr>
+        <tr><th>이메일 주소</th><td><a href="mailto:feathecrea@outlook.com">feathecrea@outlook.com</a></td></tr>
+        <tr><th>운영총괄책임자</th><td>청구가 있을 경우 지체 없이 공개합니다. 공개를 원하시는 분은 아래 이메일 주소로 연락해 주세요.</td></tr>
+        <tr><th>추가 수수료 등</th><td>없음(앱 다운로드 및 이용에 따른 통신료는 이용자 부담입니다)</td></tr>
+        <tr><th>판매 가격</th><td>광고 없는 플랜: 월 600엔(세금 포함). 광고 비표시 외에도 회의 기록 저장·열람, 심층 회의 기능이 포함됩니다. 가격은 사전 예고 없이 변경될 수 있습니다. 최신 가격은 앱 내 구매 화면에 표시되는 금액을 확인해 주세요.</td></tr>
+        <tr><th>결제 방법</th><td>Google Play Billing(Google Play 결제 방식에 준함)</td></tr>
+        <tr><th>결제 시기</th><td>최초 가입 시 즉시 결제됩니다. 이후에는 각 갱신일에 자동 결제됩니다.</td></tr>
+        <tr><th>서비스 제공 시기</th><td>결제 완료 후 즉시 이용하실 수 있습니다.</td></tr>
+        <tr>
+          <th>반품·취소에 대하여</th>
+          <td>
+            본 서비스는 디지털 콘텐츠이므로 구매 후 반품은 불가합니다. 구독 해지는 Google Play의 구독 설정에서 언제든지 가능합니다. 해지 후에도 이미 결제한 기간이 끝날 때까지는 서비스를 계속 이용하실 수 있습니다. 일할 계산에 의한 환불은 제공하지 않습니다.
+          </td>
+        </tr>
+        <tr><th>동작 환경</th><td>Android(Google Play를 통한 이용)</td></tr>
+      </table>
+    </div>
+
+    <p class="note" data-lang="ja">※本ページの内容は、法改正やサービス内容の変更に応じて予告なく更新される場合があります。</p>
+    <p class="note" data-lang="en">※The content of this page may be updated without notice in response to legal changes or changes to the service.</p>
+    <p class="note" data-lang="ko">※본 페이지의 내용은 법률 개정이나 서비스 내용 변경에 따라 사전 예고 없이 업데이트될 수 있습니다.</p>
+
+    <footer data-lang="ja">
+      © 5人のなんでも会議
+    </footer>
+    <footer data-lang="en">
+      © The 5-Person Roundtable
+    </footer>
+    <footer data-lang="ko">
+      © 5인의 무엇이든 회의
+    </footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.documentElement.classList.remove('lang-ja', 'lang-en', 'lang-ko');
+      document.documentElement.classList.add('lang-' + lang);
+      document.documentElement.lang = lang;
+      document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
+    }
+  </script>
+</body>
+</html>
