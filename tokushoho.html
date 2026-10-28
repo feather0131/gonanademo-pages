@@ -121,7 +121,9 @@
     <div class="lang-switch">
       <button id="btn-ja" class="active" onclick="setLang('ja')">日本語</button>
       <button id="btn-en" onclick="setLang('en')">English</button>
-      <button id="btn-ko" onclick="setLang('ko')">한국어</button>
+      <!-- 韓国語は、翻訳品質とテストを見きれないうちは提供しない判断（2026-08-16）。
+           本文の data-lang="ko" は残してあるので、このボタンを戻すだけで再開できる。 -->
+      <button id="btn-ko" onclick="setLang('ko')" hidden>한국어</button>
     </div>
 
     <header>
@@ -133,9 +135,9 @@
       <p data-lang="ko">특정상거래법에 따른 표기</p>
     </header>
 
-    <p class="updated" data-lang="ja">最終更新日：2026年8月1日</p>
-    <p class="updated" data-lang="en">Last updated: August 1, 2026</p>
-    <p class="updated" data-lang="ko">최종 업데이트: 2026년 8월 1일</p>
+    <p class="updated" data-lang="ja">最終更新日：2026年10月28日</p>
+    <p class="updated" data-lang="en">Last updated: October 28, 2026</p>
+    <p class="updated" data-lang="ko">최종 업데이트: 2026년 10월 28일</p>
 
     <div class="card" data-lang="ja">
       <p style="color:var(--muted); font-size:0.9rem; margin-top:0;">
@@ -167,7 +169,7 @@
         <tr><th>メールアドレス</th><td><a href="mailto:feathecrea@outlook.com">feathecrea@outlook.com</a></td></tr>
         <tr><th>運営統括責任者</th><td>請求があった場合には、遅滞なく開示いたします。開示をご希望の方は下記メールアドレスまでご連絡ください。</td></tr>
         <tr><th>追加手数料等の追加料金</th><td>なし（アプリのダウンロードおよびご利用にかかる通信料はお客様のご負担となります）</td></tr>
-        <tr><th>販売価格</th><td>広告なしプラン：月額600円（税込）。広告非表示に加え、会議履歴の保存・閲覧、深掘り会議機能が含まれます。価格は予告なく変更される場合があります。最新の価格はアプリ内の購入画面に表示される金額をご確認ください。</td></tr>
+        <tr><th>販売価格</th><td>広告なしプラン：日本での新規購入は月額700円（税込）。日本以外では地域ごとの現地価格が適用されます。広告の自動表示なし、端末に保存された会議履歴の閲覧、じっくり会議、深掘り会議、しっかりモード・お笑いモードが含まれます。購読者も任意で広告を視聴できます。会議履歴は未加入でも端末に保存されます。既存購読者には移行手続きが完了するまで旧価格が適用される場合があります。実際のお支払い金額はアプリ内の購入画面およびGoogle Playの購読画面でご確認ください。</td></tr>
         <tr><th>お支払い方法</th><td>Google Play Billing（Google Playでのお支払い方法に準じます）</td></tr>
         <tr><th>お支払い時期</th><td>初回登録時に即時課金。以降は各更新日に自動課金されます。</td></tr>
         <tr><th>サービスの提供時期</th><td>決済完了後、直ちにご利用いただけます。</td></tr>
@@ -195,7 +197,7 @@
         <tr><th>Email</th><td><a href="mailto:feathecrea@outlook.com">feathecrea@outlook.com</a></td></tr>
         <tr><th>Person in charge</th><td>Disclosed without delay upon request. Please contact us at the email address below to request this information.</td></tr>
         <tr><th>Additional fees</th><td>None (data charges for downloading/using the App are borne by the user)</td></tr>
-        <tr><th>Price</th><td>Ad-Free Plan: ¥600/month (tax included). Includes ad removal as well as meeting history (save/view) and the deep-dive meeting feature. Prices may change without notice; please check the amount shown on the in-app purchase screen for the current price.</td></tr>
+        <tr><th>Price</th><td>Ad-Free Plan: ¥700/month (tax included) for new purchases in Japan. Local prices apply in other regions. Includes no automatic ads, access to meeting history saved on your device, Deep Meeting, deep-dive meetings, Focus Mode, and Comedy Mode. Subscribers may choose to watch an ad. History is saved on your device even without a subscription. Existing subscribers may remain on a previous price until their price migration is complete. Check the in-app purchase screen or your Google Play subscription details for the amount that applies to you.</td></tr>
         <tr><th>Payment method</th><td>Google Play Billing</td></tr>
         <tr><th>Payment timing</th><td>Charged immediately upon initial subscription, then automatically at each renewal.</td></tr>
         <tr><th>Timing of service delivery</th><td>Available immediately after payment is completed.</td></tr>
@@ -221,7 +223,7 @@
         <tr><th>이메일 주소</th><td><a href="mailto:feathecrea@outlook.com">feathecrea@outlook.com</a></td></tr>
         <tr><th>운영총괄책임자</th><td>청구가 있을 경우 지체 없이 공개합니다. 공개를 원하시는 분은 아래 이메일 주소로 연락해 주세요.</td></tr>
         <tr><th>추가 수수료 등</th><td>없음(앱 다운로드 및 이용에 따른 통신료는 이용자 부담입니다)</td></tr>
-        <tr><th>판매 가격</th><td>광고 없는 플랜: 월 600엔(세금 포함). 광고 비표시 외에도 회의 기록 저장·열람, 심층 회의 기능이 포함됩니다. 가격은 사전 예고 없이 변경될 수 있습니다. 최신 가격은 앱 내 구매 화면에 표시되는 금액을 확인해 주세요.</td></tr>
+        <tr><th>판매 가격</th><td>광고 없는 플랜: 일본에서 신규 구매 시 월 700엔(세금 포함). 일본 이외 지역에는 현지 가격이 적용됩니다. 광고 자동 표시 없음, 기기에 저장된 회의 기록 열람, 심층 회의, 결론의 추가 심층 회의, 진지 모드·코미디 모드가 포함됩니다. 구독자도 직접 선택하면 광고를 볼 수 있습니다. 회의 기록 자체는 미가입자도 기기에 저장됩니다. 기존 구독자는 가격 이전 절차가 완료될 때까지 이전 가격이 적용될 수 있습니다. 실제 결제 금액은 앱 내 구매 화면 또는 Google Play 구독 정보에서 확인해 주세요.</td></tr>
         <tr><th>결제 방법</th><td>Google Play Billing(Google Play 결제 방식에 준함)</td></tr>
         <tr><th>결제 시기</th><td>최초 가입 시 즉시 결제됩니다. 이후에는 각 갱신일에 자동 결제됩니다.</td></tr>
         <tr><th>서비스 제공 시기</th><td>결제 완료 후 즉시 이용하실 수 있습니다.</td></tr>

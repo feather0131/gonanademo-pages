@@ -126,7 +126,9 @@
     <div class="lang-switch">
       <button id="btn-ja" class="active" onclick="setLang('ja')">日本語</button>
       <button id="btn-en" onclick="setLang('en')">English</button>
-      <button id="btn-ko" onclick="setLang('ko')">한국어</button>
+      <!-- 韓国語は、翻訳品質とテストを見きれないうちは提供しない判断（2026-08-16）。
+           本文の data-lang="ko" は残してあるので、このボタンを戻すだけで再開できる。 -->
+      <button id="btn-ko" onclick="setLang('ko')" hidden>한국어</button>
     </div>
 
     <header>
@@ -138,9 +140,9 @@
       <p data-lang="ko">개인정보처리방침</p>
     </header>
 
-    <p class="updated" data-lang="ja">最終更新日：2026年8月1日</p>
-    <p class="updated" data-lang="en">Last updated: August 1, 2026</p>
-    <p class="updated" data-lang="ko">최종 업데이트: 2026년 8월 1일</p>
+    <p class="updated" data-lang="ja">最終更新日：2026年10月28日</p>
+    <p class="updated" data-lang="en">Last updated: October 28, 2026</p>
+    <p class="updated" data-lang="ko">최종 업데이트: 2026년 10월 28일</p>
 
     <div class="card">
       <p data-lang="ja">「5人のなんでも会議」（以下「本アプリ」）は、ユーザーのプライバシーを尊重します。本ポリシーは、本アプリが取得・利用する情報について説明するものです。</p>
@@ -154,54 +156,72 @@
       <h2 data-lang="ko">취득하는 정보</h2>
 
       <p data-lang="ja"><strong>1. ユーザーが入力したテーマ文</strong><br>
-      会議を生成するため、入力されたテーマ文をAIモデル（Anthropic社のClaude API）へ送信します。このテキストは、生成処理のためにAnthropic社のサーバーで一時的に処理されます。詳細は<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic社のプライバシーポリシー</a>をご確認ください。</p>
+      会議を生成するため、入力されたテーマ文を当方のサーバーを経由してAIサービスへ送信します。送信先は次の2社です。<br>
+      ・<strong>OpenAI</strong>：会議本文の生成、およびテーマが会議の題材として適切かどうかの判定に使用します。詳細は<a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">OpenAIのプライバシーポリシー</a>をご確認ください。<br>
+      ・<strong>Anthropic</strong>：生成された会議本文の点検・修正に使用します。また、OpenAI側に障害があった場合の代替として本文生成に使用することがあります。詳細は<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropicのプライバシーポリシー</a>をご確認ください。<br>
+      送信した情報は各社のポリシーに従って処理・保持されます。各社の保持期間については、上記のポリシーをご確認ください。</p>
       <p data-lang="en"><strong>1. Topic text you enter</strong><br>
-      To generate a meeting, the topic text you enter is sent to an AI model (Anthropic's Claude API) for processing. This text is processed temporarily on Anthropic's servers. See <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy Policy</a> for details.</p>
+      To generate a meeting, the topic text you enter is sent through our server to AI services. There are two recipients:<br>
+      ・<strong>OpenAI</strong>: used to generate the meeting content and to judge whether the topic is suitable as a subject for a meeting. See <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">OpenAI's Privacy Policy</a>.<br>
+      ・<strong>Anthropic</strong>: used to review and correct the generated meeting content, and as a substitute for generation if OpenAI is unavailable. See <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy Policy</a>.<br>
+      The information sent is processed and retained under each provider's policy. Please refer to the linked policies for their retention practices.</p>
       <p data-lang="ko"><strong>1. 사용자가 입력한 주제 텍스트</strong><br>
-      회의를 생성하기 위해 입력하신 주제 텍스트를 AI 모델(Anthropic사의 Claude API)로 전송합니다. 이 텍스트는 생성 처리를 위해 Anthropic사의 서버에서 일시적으로 처리됩니다. 자세한 내용은 <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic사의 개인정보처리방침</a>을 확인해 주세요.</p>
+      회의를 생성하기 위해 입력하신 주제 텍스트를 당사 서버를 거쳐 AI 서비스로 전송합니다. 전송처는 다음 두 곳입니다.<br>
+      ・<strong>OpenAI</strong>: 회의 본문 생성 및 주제가 회의의 소재로 적절한지 판정에 사용합니다. 자세한 내용은 <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">OpenAI 개인정보처리방침</a>을 확인해 주세요.<br>
+      ・<strong>Anthropic</strong>: 생성된 회의 본문의 점검·수정에 사용합니다. 또한 OpenAI 측에 장애가 있을 경우 대체 생성에 사용할 수 있습니다. 자세한 내용은 <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic 개인정보처리방침</a>을 확인해 주세요.<br>
+      전송된 정보는 각 회사의 정책에 따라 처리·보관됩니다. 보관 기간은 위에 연결된 정책을 확인해 주세요.</p>
 
-      <p data-lang="ja"><strong>2. アプリの利用状況（端末内保存）</strong><br>
-      会議の開催回数、達成した称号、選択した言語・設定、および保存した会議履歴（発言内容・結論など、最大40件）は、ユーザーの端末内にのみ保存されます。これらの情報が外部のサーバーに送信されることはありません。アプリをアンインストールすると削除されます。</p>
-      <p data-lang="en"><strong>2. In-app usage data (stored locally only)</strong><br>
-      The number of meetings you've started, achievements unlocked, your language/settings preferences, and saved meeting history (dialogue and conclusions, up to 40 entries) are stored only on your device and are never sent to any external server. This data is removed if you uninstall the app.</p>
-      <p data-lang="ko"><strong>2. 앱 이용 현황(기기 내 저장)</strong><br>
-      회의 개최 횟수, 달성한 칭호, 선택한 언어·설정, 저장된 회의 기록(발언 내용·결론 등, 최대 40건)은 사용자의 기기 내에만 저장됩니다. 이 정보가 외부 서버로 전송되는 일은 없습니다. 앱을 삭제하면 함께 삭제됩니다.</p>
+      <p data-lang="ja"><strong>2. アプリの利用状況と会議履歴</strong><br>
+      会議の開催回数、達成した称号、選択した言語・設定、および会議履歴（最大500件）は端末内に保存されます。会議履歴は月額プラン加入の有無にかかわらず保存されますが、履歴画面からの閲覧は加入者に限られます。ただし、会議の続きを生成する際には、その会議の過去の発言・結論をテーマ文とともに当方のサーバーへ送信し、必要に応じて上記AIサービスで処理します。端末内の保存履歴を、別の会議の生成や広告配信のために送信することはありません。</p>
+      <p data-lang="en"><strong>2. In-app usage data and meeting history</strong><br>
+      Meeting counts, achievements, language/settings preferences, and meeting history (up to 500 entries) are stored on your device. History is saved whether or not you subscribe, but access to the history screen is limited to subscribers. To generate the next round of a meeting, however, the previous dialogue and conclusions from that meeting are sent with the topic to our server and, as needed, processed by the AI services listed above. Saved history is not sent for generating a different meeting or for ad delivery.</p>
+      <p data-lang="ko"><strong>2. 앱 이용 현황과 회의 기록</strong><br>
+      회의 횟수, 획득한 칭호, 언어·설정 및 회의 기록(최대 500건)은 기기에 저장됩니다. 회의 기록은 구독 여부와 관계없이 저장되지만, 기록 화면에서의 열람은 구독자만 가능합니다. 다만 같은 회의의 다음 회차를 생성할 때에는 해당 회의의 이전 발언과 결론을 주제와 함께 당사 서버로 전송하며, 필요한 경우 위 AI 서비스에서 처리합니다. 저장된 기록을 다른 회의의 생성이나 광고 제공을 위해 전송하지 않습니다.</p>
+      <p data-lang="ja"><strong>3. 不正利用防止のための識別情報</strong><br>
+      本アプリは端末内でランダムなIDを作成し、利用制限や用意済み会議の視聴進捗の管理のために当方のサーバーへ送信します。サーバーではIPアドレスも不正利用防止・アクセス制限のために処理します。App Checkを有効化した版では、アプリの真正性を確認するためFirebase App Checkのトークンを送信します。</p>
+      <p data-lang="en"><strong>3. Identifiers used to prevent abuse</strong><br>
+      The App creates a random device ID and sends it to our server to apply usage limits and track progress through pre-made meetings. Our server also processes IP addresses for abuse prevention and rate limiting. Builds with App Check enabled send a Firebase App Check token to verify the app.</p>
+      <p data-lang="ko"><strong>3. 부정 이용 방지를 위한 식별 정보</strong><br>
+      앱은 기기에서 임의 ID를 생성하여 이용 제한 및 미리 준비된 회의의 시청 진행 상황 관리를 위해 당사 서버로 전송합니다. 서버는 부정 이용 방지와 요청 제한을 위해 IP 주소도 처리합니다. App Check가 활성화된 버전에서는 앱 확인을 위해 Firebase App Check 토큰을 전송합니다.</p>
     </div>
 
     <div class="card">
-      <h2 data-lang="ja">取得しない情報</h2>
-      <h2 data-lang="en">Information we do NOT collect</h2>
-      <h2 data-lang="ko">취득하지 않는 정보</h2>
-      <p data-lang="ja">本アプリは、氏名・メールアドレス・位置情報・連絡先などの個人を特定できる情報を、ユーザーが自発的にお問い合わせ等で提供する場合を除き、取得しません。</p>
-      <p data-lang="en">We do not collect personally identifiable information such as your name, email address, location, or contacts, except when you voluntarily provide it (e.g., contacting support).</p>
-      <p data-lang="ko">본 앱은 이름·이메일 주소·위치 정보·연락처 등 개인을 특정할 수 있는 정보를, 사용자가 문의 등을 통해 자발적으로 제공하는 경우를 제외하고는 취득하지 않습니다.</p>
+      <h2 data-lang="ja">アカウントと端末権限</h2>
+      <h2 data-lang="en">Accounts and device permissions</h2>
+      <h2 data-lang="ko">계정과 기기 권한</h2>
+      <p data-lang="ja">本アプリはアカウント登録を求めず、氏名・メールアドレスの登録や、位置情報・連絡先へのアクセス権限を要求しません。ただし、上記の端末ID・IPアドレス等は処理し、広告事業者がIPアドレスからおおよその地域を推定する場合があります。また、テーマ文やお問い合わせに個人情報を入力された場合は、その内容を処理します。</p>
+      <p data-lang="en">The App does not require an account, your name or email address, or permission to access location or contacts. It does process the device ID and IP address described above, and the ad provider may estimate a general location from an IP address. If you include personal information in a topic or support request, that information is processed as part of the request.</p>
+      <p data-lang="ko">앱은 계정 등록이나 이름·이메일 주소 입력을 요구하지 않으며 위치 정보·연락처 접근 권한도 요청하지 않습니다. 다만 위에서 설명한 기기 ID와 IP 주소는 처리하고, 광고 제공업체는 IP 주소로 대략적인 지역을 추정할 수 있습니다. 주제나 문의에 개인정보를 입력하면 해당 내용도 요청의 일부로 처리됩니다.</p>
     </div>
 
     <div class="card">
       <h2 data-lang="ja">第三者への提供</h2>
       <h2 data-lang="en">Third-party sharing</h2>
       <h2 data-lang="ko">제3자 제공</h2>
-      <p data-lang="ja">入力されたテーマ文は、会議生成の目的でのみAnthropic社のAPIに送信されます。それ以外の目的で第三者に提供することはありません。</p>
-      <p data-lang="en">Topic text is sent only to Anthropic's API for the purpose of generating meeting content. We do not share it with any other third party for any other purpose.</p>
-      <p data-lang="ko">입력된 주제 텍스트는 회의 생성 목적으로만 Anthropic사의 API로 전송됩니다. 그 외의 목적으로 제3자에게 제공하지 않습니다.</p>
+      <p data-lang="ja">入力されたテーマ文と、同じ会議の続きを生成するために必要な過去の発言・結論は、会議生成・題材の適切性判定・生成結果の点検のために上記AIサービス（OpenAI・Anthropic）へ送信される場合があります。当方のサーバーでは会議全文を継続的な履歴として保存しません。運用・改善のため、用意済みテーマや自由入力テーマの利用状況、および用意済み会議の視聴進捗を記録します。自由入力テーマの本文が利用記録に含まれている場合があります。広告配信については下記をご覧ください。</p>
+      <p data-lang="en">The topic you enter and the previous dialogue and conclusions needed to continue that same meeting may be sent to OpenAI and Anthropic for generation, topic suitability checks, and review of the output. Our server does not keep full meeting transcripts as a persistent history. For operations and improvement, we record usage of pre-made and custom topics and progress through pre-made meetings. Custom topic text may be present in usage records. See below for advertising data processing.</p>
+      <p data-lang="ko">입력한 주제와 같은 회의의 다음 회차 생성에 필요한 이전 발언·결론은 회의 생성, 주제 적합성 판정 및 생성 결과 점검을 위해 OpenAI·Anthropic에 전송될 수 있습니다. 당사 서버는 회의 전문을 지속적인 기록으로 저장하지 않습니다. 운영 및 개선을 위해 준비된 주제와 자유 입력 주제의 이용 현황 및 준비된 회의의 시청 진행 상황을 기록합니다. 자유 입력 주제의 본문이 이용 기록에 포함되어 있을 수 있습니다. 광고 관련 처리는 아래를 참조하세요.</p>
     </div>
 
     <div class="card">
       <h2 data-lang="ja">広告</h2>
       <h2 data-lang="en">Advertising</h2>
       <h2 data-lang="ko">광고</h2>
-      <p data-lang="ja">本アプリは、広告表示のために第三者広告配信サービス（Google AdMob）を利用しています。広告配信事業者は、広告の表示・効果測定等のために、広告IDなどの端末識別子情報を取得することがあります。</p>
-      <p data-lang="en">The App uses a third-party ad network (Google AdMob) to display ads. The ad provider may collect device identifiers such as the advertising ID for ad delivery and measurement purposes.</p>
-      <p data-lang="ko">본 앱은 광고 표시를 위해 제3자 광고 네트워크(Google AdMob)를 이용하고 있습니다. 광고 제공업체는 광고 표시·효과 측정 등을 위해 광고 ID 등의 기기 식별 정보를 수집할 수 있습니다.</p>
+      <p data-lang="ja">本アプリは、広告表示のために第三者広告配信サービス（Google AdMob）を利用しています。広告配信事業者は、広告の表示・効果測定・不正防止等のために、広告IDなどの端末識別子、IPアドレス、アプリ内の操作情報、診断情報を取得することがあります。IPアドレスからおおよその地域が推定される場合があります。月額プラン加入者には広告を自動表示・先読みせず、本人が「応援する（広告を見る）」を選んだ場合にのみ広告をリクエストします。</p>
+      <p data-lang="en">The App uses Google AdMob to display ads. For ad delivery, measurement, and fraud prevention, the ad provider may collect device identifiers such as the advertising ID, IP address, in-app interactions, and diagnostic information. The IP address may be used to estimate a general location. The App does not automatically show or preload ads for monthly subscribers; an ad is requested only if a subscriber chooses “Support the developer (watch an ad).”</p>
+      <p data-lang="ko">본 앱은 광고 표시를 위해 Google AdMob을 이용합니다. 광고 제공업체는 광고 표시, 효과 측정 및 부정행위 방지를 위해 광고 ID 등의 기기 식별자, IP 주소, 앱 내 상호작용 및 진단 정보를 수집할 수 있습니다. IP 주소로 대략적인 지역을 추정할 수 있습니다. 월정액 구독자에게는 광고를 자동 표시하거나 미리 로드하지 않으며, 구독자가 직접 '응원하기(광고 보기)'를 선택한 경우에만 광고를 요청합니다.</p>
+      <p data-lang="ja">広告に関する同意・プライバシー設定にはGoogleのUser Messaging Platformを利用します。サービス側の設定と地域に応じて同意画面が表示され、設定変更画面が利用可能な場合はアプリ内から再表示できます。</p>
+      <p data-lang="en">We use Google's User Messaging Platform for ad consent and privacy choices. A consent form may be presented depending on the service configuration and your region. Where privacy options are available, you can reopen them in the App.</p>
+      <p data-lang="ko">광고 동의 및 개인정보 설정에는 Google User Messaging Platform을 사용합니다. 서비스 설정과 지역에 따라 동의 화면이 표시될 수 있으며, 개인정보 설정 화면을 이용할 수 있는 경우 앱에서 다시 열 수 있습니다.</p>
     </div>
 
     <div class="card">
       <h2 data-lang="ja">アプリ内課金（サブスクリプション）</h2>
       <h2 data-lang="en">In-App Purchases (Subscription)</h2>
       <h2 data-lang="ko">앱 내 구매(구독)</h2>
-      <p data-lang="ja">本アプリは、①広告非表示化、②会議履歴の保存・閲覧、③深掘り会議機能、を提供する月額サブスクリプション（「広告なしプラン」）を提供しています。購入・決済処理はGoogle Playの課金システム（Google Play Billing）を通じて行われ、クレジットカード番号等の決済情報を本アプリおよび開発者が直接取得・保持することはありません。加入状況（購読中かどうか）はアプリの機能提供のために利用されます。</p>
-      <p data-lang="en">The App offers a monthly subscription ("Ad-Free Plan") that provides: (1) ad removal, (2) saving and viewing meeting history, and (3) the deep-dive meeting feature. Purchases are processed through Google Play Billing; the App and its developer do not directly collect or store payment details such as credit card numbers. Your subscription status is used to provide the relevant in-app features.</p>
-      <p data-lang="ko">본 앱은 ①광고 비표시, ②회의 기록 저장·열람, ③심층 회의 기능을 제공하는 월정액 구독("광고 없는 플랜")을 제공하고 있습니다. 구매·결제 처리는 Google Play의 결제 시스템(Google Play Billing)을 통해 이루어지며, 신용카드 번호 등의 결제 정보를 본 앱 및 개발자가 직접 취득·보관하는 일은 없습니다. 구독 상태(구독 중 여부)는 앱 기능 제공을 위해 사용됩니다.</p>
+      <p data-lang="ja">本アプリは、広告の自動表示なし、会議履歴画面からの閲覧、じっくり会議・深掘り会議・しっかりモード・お笑いモードを提供する月額サブスクリプション（「広告なしプラン」）を提供しています。購読者もご自身で選んだ場合は広告を見ることができます。会議履歴の端末内への保存は未加入の場合も行われます。購入・決済処理はGoogle Playの課金システム（Google Play Billing）を通じて行われ、クレジットカード番号等の決済情報を本アプリおよび開発者が直接取得・保持することはありません。加入状況（購読中かどうか）はアプリの機能提供のために利用されます。</p>
+      <p data-lang="en">The App offers a monthly subscription ("Ad-Free Plan") with no automatic ads, access to the meeting history screen, Deep Meeting, deep-dive meetings, Focus Mode, and Comedy Mode. Subscribers may still choose to watch an ad. Meeting history is saved on the device even without a subscription. Purchases are processed through Google Play Billing; the App and its developer do not directly collect or store payment details such as credit card numbers. Your subscription status is used to provide the relevant in-app features.</p>
+      <p data-lang="ko">본 앱은 광고 자동 표시 없음, 회의 기록 화면 열람, 심층 회의·추가 심층 회의·진지 모드·코미디 모드를 제공하는 월정액 구독("광고 없는 플랜")을 제공하고 있습니다. 구독자도 직접 선택하면 광고를 볼 수 있습니다. 구독하지 않아도 회의 기록은 기기에 저장됩니다. 구매·결제 처리는 Google Play의 결제 시스템(Google Play Billing)을 통해 이루어지며, 신용카드 번호 등의 결제 정보를 본 앱 및 개발자가 직접 취득·보관하는 일은 없습니다. 구독 상태(구독 중 여부)는 앱 기능 제공을 위해 사용됩니다.</p>
     </div>
 
     <div class="card">

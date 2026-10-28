@@ -142,7 +142,9 @@
     <div class="lang-switch">
       <button id="btn-ja" class="active" onclick="setLang('ja')">日本語</button>
       <button id="btn-en" onclick="setLang('en')">English</button>
-      <button id="btn-ko" onclick="setLang('ko')">한국어</button>
+      <!-- 韓国語は、翻訳品質とテストを見きれないうちは提供しない判断（2026-08-16）。
+           本文の data-lang="ko" は残してあるので、このボタンを戻すだけで再開できる。 -->
+      <button id="btn-ko" onclick="setLang('ko')" hidden>한국어</button>
     </div>
 
     <header>
@@ -218,28 +220,28 @@
 
       <div class="faq-item" data-lang="ja">
         <p class="faq-q">広告が表示されるのはなぜですか？</p>
-        <p class="faq-a">会議の生成にはAIモデルの呼び出しが必要で、その都度サーバー側でコストが発生しています。広告を視聴いただくことで、このコストの一部をまかなわせていただいています。</p>
+        <p class="faq-a">自由入力テーマの会議生成や深掘り会議などではAIモデルを利用し、サーバー側で費用が発生します。一部の用意済みテーマは、事前に作成した会議内容を配信します。広告はサービス運営費の一部をまかなうために表示しています。</p>
       </div>
       <div class="faq-item" data-lang="en">
         <p class="faq-q">Why do ads appear?</p>
-        <p class="faq-a">Generating each meeting requires an AI model call, which incurs server-side costs. Watching an ad helps us cover part of that cost.</p>
+        <p class="faq-a">Generating meetings from custom topics and using features such as deep-dive meetings can incur AI costs on our server. Some pre-made topics serve meeting content prepared in advance. Ads help cover part of the cost of running the service.</p>
       </div>
       <div class="faq-item" data-lang="ko">
         <p class="faq-q">광고는 왜 표시되나요?</p>
-        <p class="faq-a">회의를 생성할 때마다 AI 모델을 호출해야 하며, 그때마다 서버 측에서 비용이 발생합니다. 광고를 시청해 주시면 이 비용의 일부를 충당하는 데 도움이 됩니다.</p>
+        <p class="faq-a">직접 입력한 주제로 회의를 생성하거나 심층 회의 등의 기능을 사용하면 서버에서 AI 비용이 발생할 수 있습니다. 일부 미리 준비된 주제는 사전에 만든 회의 내용을 제공합니다. 광고는 서비스 운영 비용의 일부를 충당하는 데 도움이 됩니다.</p>
       </div>
 
       <div class="faq-item" data-lang="ja">
         <p class="faq-q">「広告なしプラン」に入るとどうなりますか？</p>
-        <p class="faq-a">①広告視聴なしですぐに次回・結論へ進めるようになるほか、②会議履歴の保存・後からの閲覧、③結論をさらに掘り下げられる「深掘り会議」機能もあわせて利用できるようになります。アプリ内の「広告なしプラン」からご確認いただけます。</p>
+        <p class="faq-a">広告を見ずに会議を進められ、保存された会議履歴の閲覧、じっくり会議、結論の深掘り会議、しっかりモード・お笑いモードも利用できます。履歴自体は未加入でも端末内に保存されますが、履歴画面からの閲覧は加入者向けです。購読者も、ご自身で選んだ場合は広告を見ることができます。アプリ内の「広告なしプラン」からご確認いただけます。</p>
       </div>
       <div class="faq-item" data-lang="en">
         <p class="faq-q">What do I get with the "Ad-Free Plan"?</p>
-        <p class="faq-a">You get (1) instant access to the next round or conclusion with no ads, (2) the ability to save and revisit your meeting history, and (3) the "deep-dive meeting" feature to dig further into a conclusion. You can check this from "Ad-Free Plan" in the app.</p>
+        <p class="faq-a">You can continue meetings without watching ads and access saved meeting history, Deep Meeting, deep-dive meetings, Focus Mode, and Comedy Mode. History is saved on your device even without a subscription, but opening the history screen is a subscriber feature. Subscribers may still choose to watch an ad. See "Ad-Free Plan" in the app.</p>
       </div>
       <div class="faq-item" data-lang="ko">
         <p class="faq-q">'광고 없는 플랜'에 가입하면 무엇이 좋아지나요?</p>
-        <p class="faq-a">①광고 시청 없이 바로 다음 회차·결론으로 진행할 수 있고, ②회의 기록을 저장해 나중에 다시 볼 수 있으며, ③결론을 더 깊이 파고드는 '심층 회의' 기능도 함께 이용하실 수 있습니다. 앱 내 '광고 없는 플랜'에서 확인하실 수 있습니다.</p>
+        <p class="faq-a">광고를 보지 않고 회의를 진행하고 저장된 회의 기록 열람, 심층 회의, 결론의 추가 심층 회의, 진지 모드·코미디 모드를 이용할 수 있습니다. 기록 자체는 미가입자도 기기에 저장되지만 기록 화면 열람은 가입자 전용입니다. 구독자도 직접 선택하면 광고를 볼 수 있습니다. 앱 내 '광고 없는 플랜'에서 확인하실 수 있습니다.</p>
       </div>
 
       <div class="faq-item" data-lang="ja">
@@ -257,15 +259,15 @@
 
       <div class="faq-item" data-lang="ja">
         <p class="faq-q">入力したテーマや個人情報はどう扱われますか？</p>
-        <p class="faq-a">入力いただいたテーマ文章は、会議を生成するためにAI（Anthropic社のClaude API）へ送信されます。詳しくは<a href="privacy.html">プライバシーポリシー</a>をご確認ください。</p>
+        <p class="faq-a">入力いただいたテーマ文章は、当方のサーバーを経由してAIサービス（OpenAI・Anthropic）へ送信されます。詳しくは<a href="privacy.html">プライバシーポリシー</a>をご確認ください。</p>
       </div>
       <div class="faq-item" data-lang="en">
         <p class="faq-q">How is my submitted topic or personal information handled?</p>
-        <p class="faq-a">The topic text you submit is sent to an AI model (Anthropic's Claude API) to generate the meeting. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
+        <p class="faq-a">The topic text you submit is sent through our server to AI services (OpenAI and Anthropic). See our <a href="privacy.html">Privacy Policy</a> for details.</p>
       </div>
       <div class="faq-item" data-lang="ko">
         <p class="faq-q">입력한 주제나 개인정보는 어떻게 처리되나요?</p>
-        <p class="faq-a">입력하신 주제 텍스트는 회의를 생성하기 위해 AI(Anthropic사의 Claude API)로 전송됩니다. 자세한 내용은 <a href="privacy.html">개인정보처리방침</a>을 확인해 주세요.</p>
+        <p class="faq-a">입력하신 주제 텍스트는 당사 서버를 거쳐 AI 서비스(OpenAI·Anthropic)로 전송됩니다. 자세한 내용은 <a href="privacy.html">개인정보처리방침</a>을 확인해 주세요.</p>
       </div>
 
       <div class="faq-item" data-lang="ja">
